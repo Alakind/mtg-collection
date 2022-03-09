@@ -15,6 +15,7 @@ interface CardRepository: CrudRepository<Card, String> {
     fun findCards(): List<Card>
 
     @Query("INSERT INTO card(name) VALUES('Brushwag')")
+    // @Query
     fun postCard(card: Card) {
         println(card);
     }

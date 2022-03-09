@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 class CardService(val db: CardRepository) {
     fun findCards(): List<Card> = db.findCards()
 
-    fun post(card: Card) {
+    fun postCard(card: Card) {
         db.save(card)
     }
 }

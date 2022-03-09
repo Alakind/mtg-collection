@@ -33,6 +33,6 @@ class CardResource(val service: CardService) {
 
     @PostMapping(value = ["/cards"])
     fun postCard(@RequestBody card: Card) {
-        service.post(card)
+        service.postCard(card)
     }
 }

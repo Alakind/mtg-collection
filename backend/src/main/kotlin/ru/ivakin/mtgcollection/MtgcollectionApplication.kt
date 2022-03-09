@@ -26,18 +26,6 @@ fun main(args: Array<String>) {
 	runApplication<MtgcollectionApplication>(*args)
 }
 
-// @RestController
-// class MessageResource(val service: MessageService) {
-//     @GetMapping
-//     fun index(): List<Message> = service.findMessages()
-
-//     @PostMapping
-//     fun post(@RequestBody message: Message) {
-//         println(message)
-//         service.post(message)
-//     }
-// }
-
 @RestController
 class CardResource(val service: CardService) {
     @GetMapping(value = ["/cards"])
@@ -46,23 +34,5 @@ class CardResource(val service: CardService) {
     @PostMapping(value = ["/cards"])
     fun postCard(@RequestBody card: Card) {
         service.post(card)
-    }
-}
-
-@Table("MESSAGE")
-data class Message(@Id val id: String?, val text: String)
-
-interface MessageRepository: CrudRepository<Message, String> {
-    @Query("SELECT * FROM message")
-    fun findMessages(): List<Message>
-
-}
-
-@Service
-class MessageService(val db: MessageRepository) {
-    fun findMessages(): List<Message> = db.findMessages()
-
-    fun post(message: Message) {
-        db.save(message)
     }
 }

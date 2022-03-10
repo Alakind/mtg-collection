@@ -4,7 +4,9 @@ POST http://localhost:8080/cards
 Content-Type: application/json
 
 {
-  "name": "Island"
+  "name": "Island",
+  "set_code": "M21",
+  "type_id": 0
 }
 
 ### Get all the cards

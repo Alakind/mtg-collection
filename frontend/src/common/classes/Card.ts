@@ -1,5 +1,5 @@
 export default class Card {
-  cardId: number;
+  id: number;
 
   name = '';
 
@@ -24,8 +24,8 @@ export default class Card {
   approved = false;
 
   constructor(
-    cardId: number,
+    id: number,
   ) {
-    this.cardId = cardId;
+    this.id = id;
   }
 }

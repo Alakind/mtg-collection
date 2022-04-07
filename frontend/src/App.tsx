@@ -1,12 +1,14 @@
 import React from 'react';
-import './App.css';
-import CollectionContainer from './modules/collection/containers/CollectionContainer';
+import Card from './common/classes/Card';
+import CardMedium from './modules/collection/components/CardMedium';
 
 function App() {
+  const card = new Card(1);
+
   return (
     <div className="App">
       <header className="App-header">
-        <CollectionContainer />
+        <CardMedium card={card} />
       </header>
     </div>
   );

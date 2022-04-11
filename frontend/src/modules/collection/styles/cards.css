@@ -1,0 +1,76 @@
+.card-medium {
+    position: relative;
+    width: 189px;
+    height: 267px;
+    background-color: antiquewhite;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.label-medium {
+    background-color: peachpuff;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.name-medium {
+    font-weight: bold;
+}
+
+.manacost-medium {
+    text-align: right;
+}
+
+.filler-medium {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.bottom-container-medium {
+    background-color: peachpuff;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.label-type-medium {
+    background-color: burlywood;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.label-description-medium {
+    background-color: peachpuff;
+    border-radius: 10px;
+    text-align: left;
+    margin: 5px;
+}
+
+.bottom-bar-medium {
+    width: 100%;
+    display: flex;
+}
+
+.power-toughness-medium {
+    background-color: burlywood;
+    border-radius: 10px;
+    width: 45%;
+    text-align: center;
+}
+
+.set-medium {
+    background-color: burlywood;
+    border-radius: 10px;
+    width: 45%;
+    text-align: center;
+}
+
+.edit-button-medium {
+    background-color: burlywood;
+    border-radius: 10px;
+    width: 10%;
+    text-align: center;
+}

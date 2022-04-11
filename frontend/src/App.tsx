@@ -1,9 +1,10 @@
 import React from 'react';
 import Card from './common/classes/Card';
+import { getCreatureCard } from './mocks/cards';
 import CardMedium from './modules/collection/components/CardMedium';
 
 function App() {
-  const card = new Card(1);
+  const card: Card = getCreatureCard();
 
   return (
     <div className="App">

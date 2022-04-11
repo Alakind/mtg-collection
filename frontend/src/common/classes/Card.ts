@@ -5,7 +5,15 @@ export default class Card {
 
   setCode = '';
 
-  types = [];
+  type = '';
+
+  tags = [''];
+
+  abilities = [''];
+
+  power = 0;
+
+  toughness = 0;
 
   manaNeutral = 0;
 
@@ -22,6 +30,8 @@ export default class Card {
   description = '';
 
   approved = false;
+
+  commentary = '';
 
   constructor(
     id: number,

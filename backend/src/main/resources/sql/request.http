@@ -9,5 +9,12 @@ Content-Type: application/json
   "type_id": 0
 }
 
-### Get all the cards
+### Get all cards
 GET http://localhost:8080/cards
+
+### Get all decks
+GET http://localhost:8080/decks
+
+### Get deck cards
+GET http://localhost:8080/decks/1
+

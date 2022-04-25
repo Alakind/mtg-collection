@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id
 
 @Table("card")
 data class Card(
-    @Id val cardId: Long?,
+    @Id val id: Long?,
     val name: String,
     val set_code: String,
     val type_id: Int,

@@ -14,8 +14,10 @@ import org.springframework.stereotype.Service
 
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PathVariable
 
 import ru.ivakin.mtgcollection.model.Card;
+import ru.ivakin.mtgcollection.model.Deck;
 import ru.ivakin.mtgcollection.repository.CardRepository;
 import ru.ivakin.mtgcollection.service.CardService;
 
@@ -30,6 +32,12 @@ fun main(args: Array<String>) {
 class CardResource(val service: CardService) {
     @GetMapping(value = ["/cards"])
     fun getCards(): List<Card> = service.findCards()
+
+    @GetMapping(value = ["/decks"])
+    fun getDecks(): List<Deck> = service.findDecks()
+
+    @GetMapping(value = ["/decks/{deck_id}"])
+    fun getDeckCards(@PathVariable("deck_id") deck_id: Int): List<Card> = service.getDeckCards(deck_id)
 
     @PostMapping(value = ["/cards"])
     fun postCard(@RequestBody card: Card) {

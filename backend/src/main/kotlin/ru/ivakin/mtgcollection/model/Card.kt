@@ -5,10 +5,14 @@ import org.springframework.data.annotation.Id
 
 @Table("card")
 data class Card(
-    @Id val id: Long?,
+    @Id val id: Long,
     val name: String,
     val set_code: String,
-    val type_id: Int,
+    val type: String?,
+    var tags: List<String>?,
+    var abilities: List<String>?,
+    val power: Int?,
+    val toughness: Int?,
     val mana_neutral: Int?,
     val mana_white: Int?,
     val mana_black: Int?,

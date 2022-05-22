@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service
 class CardService(val db: CardRepository) {
     fun findCards(): List<Card> = db.findCards()
 
+    fun findTags(cardId: Long): List<String> = db.findTags(cardId)
+
+    fun findAbilities(cardId: Long): List<String> = db.findAbilities(cardId)
+
     fun postCard(card: Card) {
         db.save(card)
     }

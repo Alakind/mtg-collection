@@ -31,7 +31,19 @@ fun main(args: Array<String>) {
 @RestController
 class CardResource(val service: CardService) {
     @GetMapping(value = ["/cards"])
-    fun getCards(): List<Card> = service.findCards()
+    fun getCards(): List<Card> {
+        var cards = service.findCards();
+
+        for (card in cards) {
+            val tags = service.findTags(card.id);
+            val abilities = service.findAbilities(card.id);
+
+            card.tags = tags;
+            card.abilities = abilities;
+        }
+
+        return cards;
+        }
 
     @GetMapping(value = ["/decks"])
     fun getDecks(): List<Deck> = service.findDecks()

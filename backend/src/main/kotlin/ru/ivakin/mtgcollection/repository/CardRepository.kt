@@ -16,6 +16,12 @@ interface CardRepository: CrudRepository<Card, String> {
     @Query("SELECT * FROM card")
     fun findCards(): List<Card>
 
+    @Query("SELECT tag FROM card_tag WHERE card_id = :needed_card_id")
+    fun findTags(@Param("needed_card_id") card_id: Long): List<String>
+
+    @Query("SELECT ability FROM card_ability WHERE card_id = :needed_card_id")
+    fun findAbilities(@Param("needed_card_id") card_id: Long): List<String>
+
     @Query("SELECT * FROM deck")
     fun findDecks(): List<Deck>
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from '../../../common/classes/Card';
+import CardMedium from './CardMedium';
+import '../styles/collection.css';
 
 export interface CollectionProps {
     cards: Card[]
@@ -8,7 +10,13 @@ export interface CollectionProps {
 function Collection({
   cards,
 }: CollectionProps) {
-  return <div>{cards}</div>;
+  return (
+    <div className="collection-box">
+      {cards.map((card) => (
+        <CardMedium key={card.id} card={card} />
+      ))}
+    </div>
+  );
 }
 
 export default Collection;

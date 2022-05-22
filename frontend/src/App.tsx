@@ -1,17 +1,17 @@
 import React from 'react';
-import Card from './common/classes/Card';
-import { getCreatureCard } from './mocks/cards';
-import CardMedium from './modules/collection/components/CardMedium';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CollectionContainer from './modules/collection/containers/CollectionContainer';
+import Navbar from './modules/common/components/navbar/Navbar';
 
 function App() {
-  const card: Card = getCreatureCard();
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <CardMedium card={card} />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<CollectionContainer />} />
+        <Route path="decks" element={<div>Decks</div>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

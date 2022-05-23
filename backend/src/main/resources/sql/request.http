@@ -4,7 +4,7 @@ POST http://localhost:8080/cards
 Content-Type: application/json
 
 {
-  "name": "Island",
+  "name": "Mountain",
   "setCode": "M21",
   "typeId": 0
 }

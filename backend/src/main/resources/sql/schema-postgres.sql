@@ -12,6 +12,8 @@ CREATE TABLE card(
     type VARCHAR(100),
     power INT,
     toughness INT,
+    abilities INT,
+    tags INT,
     mana_neutral INT,
     mana_white INT,
     mana_black INT,

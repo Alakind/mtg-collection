@@ -52,13 +52,29 @@ class CardResource(val service: CardService) {
     }
 
     @GetMapping(value = ["/decks"])
-    fun getDecks(): List<Deck> = service.findDecks()
+    fun getDecks(): ResponseEntity<List<Deck>> {
+        val decks = service.findDecks();
+
+        var responseHeaders = HttpHeaders();
+        responseHeaders.set("Access-Control-Allow-Origin", "*");
+
+        return ResponseEntity(decks, responseHeaders, HttpStatus.OK);
+    }
 
     @GetMapping(value = ["/decks/{deck_id}"])
-    fun getDeckCards(@PathVariable("deck_id") deck_id: Int): List<Card> = service.getDeckCards(deck_id)
+    fun getDeckCards(@PathVariable("deck_id") deck_id: Int): ResponseEntity<List<Card>> {
+        val deckCards = service.getDeckCards(deck_id);
+
+        var responseHeaders = HttpHeaders();
+        responseHeaders.set("Access-Control-Allow-Origin", "*");
+
+        return ResponseEntity(deckCards, responseHeaders, HttpStatus.OK);
+    }
 
     @PostMapping(value = ["/cards"])
     fun postCard(@RequestBody card: Card) {
-        service.postCard(card)
+        println(card);
+        
+        service.postCard(card);
     }
 }

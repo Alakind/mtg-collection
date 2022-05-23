@@ -4,9 +4,8 @@ POST http://localhost:8080/cards
 Content-Type: application/json
 
 {
-  "name": "Mountain",
-  "setCode": "M21",
-  "typeId": 0
+  "name": "Plain",
+  "setCode": "M21"
 }
 
 ### Get all cards
@@ -14,6 +13,9 @@ GET http://localhost:8080/cards
 
 ### Get all decks
 GET http://localhost:8080/decks
+
+### Add card to deck
+POST http://localhost:8080/decks/1/card/2
 
 ### Get deck cards
 GET http://localhost:8080/decks/1

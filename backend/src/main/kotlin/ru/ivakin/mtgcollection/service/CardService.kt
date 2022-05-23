@@ -21,5 +21,9 @@ class CardService(val db: CardRepository) {
 
     fun findDecks(): List<Deck> = db.findDecks()
 
+    fun addCardToDeck(cardId: Int, deckId: Int) {
+        db.addCardToDeck(cardId, deckId);
+    }
+
     fun getDeckCards(deck_id: Int): List<Card> = db.getDeckCards(deck_id)
 }

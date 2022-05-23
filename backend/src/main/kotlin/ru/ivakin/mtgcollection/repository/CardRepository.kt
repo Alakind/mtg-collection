@@ -9,8 +9,10 @@ import org.springframework.data.annotation.Id
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.data.jdbc.repository.query.Query
+import org.springframework.data.jdbc.repository.query.Modifying
 import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.query.Param;
+// import org.springframework.data.jpa.repository.Modifying;
 
 interface CardRepository: CrudRepository<Card, String> {
     @Query("SELECT * FROM card")
@@ -25,8 +27,18 @@ interface CardRepository: CrudRepository<Card, String> {
     @Query("SELECT * FROM deck")
     fun findDecks(): List<Deck>
 
-    @Query("SELECT * FROM card WHERE id = (SELECT card_id FROM deck_cards WHERE deck_id = :needed_deck_id)")
+    @Query("SELECT * FROM card WHERE id IN (SELECT card_id FROM deck_cards WHERE deck_id = :needed_deck_id)")
     fun getDeckCards(@Param("needed_deck_id") deck_id: Int): List<Card>;
+
+    @Modifying
+    @Query(
+        value = "INSERT INTO deck_cards(deck_id, card_id) VALUES(:deckId, :cardId)"
+    )
+    fun addCardToDeck(@Param("cardId") cardId: Int, @Param("deckId") deckId: Int) {
+        println(cardId);
+        println(deckId);
+        println("-------------------------------------------------------------------------");
+    };
 
     @Query("INSERT INTO card(name) VALUES('Brushwag')")
     // @Query

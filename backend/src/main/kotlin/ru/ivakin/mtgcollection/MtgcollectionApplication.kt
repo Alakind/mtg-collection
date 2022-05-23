@@ -71,10 +71,13 @@ class CardResource(val service: CardService) {
         return ResponseEntity(deckCards, responseHeaders, HttpStatus.OK);
     }
 
+    @PostMapping(value = ["/decks/{deckId}/card/{cardId}"])
+    fun addCardToDeck(@PathVariable("cardId") cardId: Int, @PathVariable("deckId") deckId: Int) {
+        service.addCardToDeck(cardId, deckId);
+    }
+
     @PostMapping(value = ["/cards"])
     fun postCard(@RequestBody card: Card) {
-        println(card);
-        
         service.postCard(card);
     }
 }

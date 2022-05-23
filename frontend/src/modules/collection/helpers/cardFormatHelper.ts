@@ -3,7 +3,9 @@ import Card from '../../../common/classes/Card';
 function getCardManaString(card: Card) {
   let manacost = '';
 
-  manacost += `{${card.manaNeutral}}`;
+  if (card.manaNeutral) {
+    manacost += `{${card.manaNeutral}}`;
+  }
 
   manacost += '{Bk}'.repeat(card.manaBlack);
   manacost += '{Bu}'.repeat(card.manaBlue);

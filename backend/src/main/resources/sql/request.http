@@ -5,8 +5,8 @@ Content-Type: application/json
 
 {
   "name": "Island",
-  "set_code": "M21",
-  "type_id": 0
+  "setCode": "M21",
+  "typeId": 0
 }
 
 ### Get all cards

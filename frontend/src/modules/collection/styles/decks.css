@@ -1,0 +1,22 @@
+.decks-box {
+    background-color: aqua;
+    display: flex;
+}
+
+.deck-info {
+    background-color: peachpuff;
+    width: 20%;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.deck-info-title {
+    text-align: center;
+    margin: 5px;
+}
+
+.deck-info-description {
+    text-align: center;
+    margin: 5px;
+}

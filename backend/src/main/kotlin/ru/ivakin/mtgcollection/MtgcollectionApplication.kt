@@ -66,6 +66,14 @@ class CardResource(val service: CardService) {
     fun getDeckCards(@PathVariable("deck_id") deck_id: Int): ResponseEntity<List<Card>> {
         val deckCards = service.getDeckCards(deck_id);
 
+        for (card in deckCards) {
+            val tags = service.findTags(card.id);
+            val abilities = service.findAbilities(card.id);
+
+            card.tags = tags;
+            card.abilities = abilities;
+        }
+
         var responseHeaders = HttpHeaders();
         responseHeaders.set("Access-Control-Allow-Origin", "*");
 

@@ -8,9 +8,13 @@ const getCards = () => axios
 const getDecks = () => axios
   .get(`${API_URL}decks`, {});
 
+const getDeckCards = (deckId: number) => axios
+  .get(`${API_URL}decks/${deckId}`, {});
+
 const collectionApi = {
   getCards,
   getDecks,
+  getDeckCards,
 };
 
 export default collectionApi;

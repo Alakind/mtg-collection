@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DeckList from '../components/DeckList';
 import collectionApi from '../service/cardsApi';
 
@@ -12,7 +13,13 @@ function DeckListContainer() {
       });
   }, []);
 
-  return <DeckList decks={decks} />;
+  const navigate = useNavigate();
+
+  const handleOpenDeck = ((deckId: number) => {
+    navigate(`/decks/${deckId}`);
+  });
+
+  return <DeckList onOpenDeck={handleOpenDeck} decks={decks} />;
 }
 
 export default DeckListContainer;

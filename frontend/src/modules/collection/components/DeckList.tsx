@@ -4,16 +4,19 @@ import '../styles/decks.css';
 import DeckInfo from './DeckInfo';
 
 export interface DecksProps {
-    decks: Deck[]
+    decks: Deck[],
+    // eslint-disable-next-line
+    onOpenDeck: (decklId: number) => void
 }
 
 function DeckList({
   decks,
+  onOpenDeck,
 }: DecksProps) {
   return (
     <div className="decks-box">
       {decks.map((deck) => (
-        <DeckInfo key={deck.id} deck={deck} />
+        <DeckInfo handleClick={() => { onOpenDeck(deck.id); }} key={deck.id} deck={deck} />
       ))}
     </div>
   );

@@ -20,3 +20,5 @@ POST http://localhost:8080/decks/1/card/2
 ### Get deck cards
 GET http://localhost:8080/decks/1
 
+### Delete card 
+DELETE http://localhost:8080/cards/1

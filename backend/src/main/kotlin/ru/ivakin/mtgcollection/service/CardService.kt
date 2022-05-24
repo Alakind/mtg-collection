@@ -26,4 +26,6 @@ class CardService(val db: CardRepository) {
     }
 
     fun getDeckCards(deck_id: Int): List<Card> = db.getDeckCards(deck_id)
+
+    fun deleteCard(cardId: Int) = db.deleteCard(cardId)
 }

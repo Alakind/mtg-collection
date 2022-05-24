@@ -34,16 +34,16 @@ interface CardRepository: CrudRepository<Card, String> {
     @Query(
         value = "INSERT INTO deck_cards(deck_id, card_id) VALUES(:deckId, :cardId)"
     )
-    fun addCardToDeck(@Param("cardId") cardId: Int, @Param("deckId") deckId: Int) {
-        println(cardId);
-        println(deckId);
-        println("-------------------------------------------------------------------------");
-    };
+    fun addCardToDeck(@Param("cardId") cardId: Int, @Param("deckId") deckId: Int);
 
     @Query("INSERT INTO card(name) VALUES('Brushwag')")
     // @Query
     fun postCard(card: Card) {
         println(card);
     }
+
+    @Modifying
+    @Query("DELETE FROM card WHERE id = :cardId")
+    fun deleteCard(@Param("cardId") cardId: Int);
 
 }

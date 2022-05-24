@@ -25,6 +25,10 @@ class CardService(val db: CardRepository) {
         db.addCardToDeck(cardId, deckId);
     }
 
+    fun postDeck(deck: Deck) {
+        db.postDeck(deck.name, deck.description, deck.isShared)
+    }
+
     fun getDeckCards(deck_id: Int): List<Card> = db.getDeckCards(deck_id)
 
     fun deleteCard(cardId: Int) = db.deleteCard(cardId)

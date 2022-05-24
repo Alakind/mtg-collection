@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.http.HttpHeaders
 
-import ru.ivakin.mtgcollection.model.Card;
-import ru.ivakin.mtgcollection.model.Deck;
-import ru.ivakin.mtgcollection.repository.CardRepository;
-import ru.ivakin.mtgcollection.service.CardService;
+import ru.ivakin.mtgcollection.model.Card
+import ru.ivakin.mtgcollection.model.Deck
+import ru.ivakin.mtgcollection.repository.CardRepository
+import ru.ivakin.mtgcollection.service.CardService
 
 @SpringBootApplication
 class MtgcollectionApplication
@@ -80,6 +80,11 @@ class CardResource(val service: CardService) {
     @PostMapping(value = ["/cards"])
     fun postCard(@RequestBody card: Card) {
         service.postCard(card);
+    }
+
+    @PostMapping(value = ["/decks"])
+    fun postCard(@RequestBody deck: Deck) {
+        service.postDeck(deck)
     }
 
     @DeleteMapping(value = ["/cards/{cardId}"])

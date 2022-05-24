@@ -31,6 +31,19 @@ interface CardRepository: CrudRepository<Card, String> {
     fun getDeckCards(@Param("needed_deck_id") deck_id: Int): List<Card>;
 
     @Modifying
+    @Query("""INSERT INTO deck(
+    name,
+    description,
+    is_shared
+    ) 
+    VALUES(
+        :name,
+        :description,
+        :isShared
+    )""")
+    fun postDeck(@Param("name") name: String, @Param("description") description: String, @Param("isShared") isShared: Int)
+
+    @Modifying
     @Query(
         value = "INSERT INTO deck_cards(deck_id, card_id) VALUES(:deckId, :cardId)"
     )

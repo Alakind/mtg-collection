@@ -7,6 +7,6 @@ import org.springframework.data.annotation.Id
 data class Deck(
     @Id val id: Long?,
     val name: String,
-    val description: String?,
-    val is_chared: Int?
+    val description: String,
+    val isShared: Int
 )

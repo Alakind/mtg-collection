@@ -81,8 +81,14 @@ class CardResource(val service: CardService) {
     }
 
     @PostMapping(value = ["/decks/{deckId}/card/{cardId}"])
-    fun addCardToDeck(@PathVariable("cardId") cardId: Int, @PathVariable("deckId") deckId: Int) {
+    fun addCardToDeck(@PathVariable("deckId") deckId: Int, @PathVariable("cardId") cardId: Int): ResponseEntity<String> {
+        println("afksahg")
         service.addCardToDeck(cardId, deckId);
+
+        var responseHeaders = HttpHeaders();
+        responseHeaders.set("Access-Control-Allow-Origin", "*");
+
+        return ResponseEntity("", responseHeaders, HttpStatus.OK);
     }
 
     @PostMapping(value = ["/cards"])

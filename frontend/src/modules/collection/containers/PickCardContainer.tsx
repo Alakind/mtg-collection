@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Deck from '../components/Deck';
+import PickCard from '../components/PickCard';
 import collectionApi from '../service/cardsApi';
 
-function DeckContainer() {
+function PickCardContainer() {
   const [cards, setCards] = useState([]);
 
   const location = useLocation();
@@ -11,20 +11,19 @@ function DeckContainer() {
 
   const deckId = Number(location.pathname.substring(location.pathname.lastIndexOf('/') + 1));
 
-  const onAddCard = useCallback(() => {
-    navigate(`/decks/add/${deckId}`);
-  }, [navigate]);
+  const onPick = useCallback((cardId) => {
+    collectionApi.addCardToDeck(cardId, deckId).then().catch();
+    navigate(`/decks/${deckId}`);
+  }, []);
 
   useEffect(() => {
-    collectionApi.getDeckCards(deckId)
+    collectionApi.getCards()
       .then((response) => {
         setCards(response.data);
       });
   }, []);
 
-  return (
-    <Deck cards={cards} onAddCard={onAddCard} />
-  );
+  return <PickCard cards={cards} onPick={onPick} />;
 }
 
-export default React.memo(DeckContainer);
+export default React.memo(PickCardContainer);

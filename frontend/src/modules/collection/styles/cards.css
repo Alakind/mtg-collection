@@ -19,6 +19,7 @@
 
 .name-medium {
     font-weight: bold;
+    word-wrap: break-word;
 }
 
 .manacost-medium {
@@ -47,6 +48,7 @@
     border-radius: 10px;
     text-align: left;
     margin: 5px;
+    word-wrap: break-word;
 }
 
 .bottom-bar-medium {

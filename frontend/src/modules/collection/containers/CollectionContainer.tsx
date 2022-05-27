@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Collection from '../components/Collection';
 import collectionApi from '../service/cardsApi';
 
 function CollectionContainer() {
   const [cards, setCards] = useState([]);
+
+  const navigate = useNavigate();
+
+  const onCreateCard = useCallback(() => {
+    navigate('/card/new');
+  }, []);
 
   useEffect(() => {
     collectionApi.getCards()
@@ -12,7 +19,7 @@ function CollectionContainer() {
       });
   }, []);
 
-  return <Collection cards={cards} />;
+  return <Collection cards={cards} onCreateCard={onCreateCard} />;
 }
 
-export default CollectionContainer;
+export default React.memo(CollectionContainer);

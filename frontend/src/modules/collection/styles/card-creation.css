@@ -1,0 +1,48 @@
+.card-creation {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputs {
+    margin-left: 40%;
+}
+
+.card-demo {
+    margin: auto;
+}
+
+.text-input {
+    margin: 10px;
+    width: 250px;
+    font-size: 20px;
+}
+
+.set-code {
+    width: 50px;
+}
+
+.number-input {
+    margin: 10px;
+}
+
+.textarea-label {
+    margin: 10px;
+    vertical-align: middle;
+}
+
+.textarea-input {
+    min-width: 400px;
+    min-height: 100px;
+
+    max-width: 400px;
+    max-height: 100px;
+
+    width: 400px;
+    height: 100px;
+}
+.button-create {
+    width: 300px;
+    height: 50px;
+
+    background-color: burlywood;
+}
